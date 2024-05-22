@@ -1,6 +1,7 @@
 import LoginCard from "@/ui/login/LoginCard";
 import stackedLogo from "../../../public/stacked-logo.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -19,7 +20,9 @@ export default function Page() {
         </form>
         <div className="flex justify-center flex-wrap items-center gap-[44px]">
           <hr className="border-black w-[155px]" />
-          <p className="text-[18px] text-val-red font-bold">Admin Login</p>
+          <Link href="/admin" className="text-[18px] text-val-red font-bold">
+            Admin Login
+          </Link>
           <hr className="border-black w-[155px]" />
         </div>
       </div>
