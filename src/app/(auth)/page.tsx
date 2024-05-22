@@ -17,10 +17,10 @@ export default function Page() {
             Continue
           </button>
         </form>
-        <div className="flex justify-center items-center gap-[44px]">
-          <hr className="border-black w-[142px]" />
+        <div className="flex justify-center flex-wrap items-center gap-[44px]">
+          <hr className="border-black w-[155px]" />
           <p className="text-[18px] text-val-red font-bold">Admin Login</p>
-          <hr className="border-black w-[142px]" />
+          <hr className="border-black w-[155px]" />
         </div>
       </div>
     </div>
