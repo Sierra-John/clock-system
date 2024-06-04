@@ -13,6 +13,7 @@ export default function Page() {
         className="flex flex-col justify-center items-center"
       >
         <input
+          required
           type="text"
           name="VID"
           placeholder="Enter Your VID..."

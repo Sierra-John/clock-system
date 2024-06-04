@@ -32,12 +32,40 @@ export async function checkEmployeeStatus(VID: string) {
   const entry = await prisma.entry.findFirst({
     where: { VID },
     orderBy: { id: "desc" },
+    include: {
+      employee: true,
+    },
   });
+
+  console.log(entry);
 
   // entry DNE OR latest entry is complete
   if (!entry || entry.signIn < entry.signOut) {
-    return true;
+    // if entry DNE it's employees first time signing in...
+    if (!entry) {
+      // Query the DB for Employee name
+      const empl = await prisma.employee.findFirst({
+        where: { VID },
+      });
+
+      // Employee DNE
+      if (!empl) {
+        redirect("/");
+      }
+      return { firstName: empl.firstName, VID: empl.VID, signIn: true };
+    }
+    console.log("Need to sign in", entry);
+    return {
+      firstName: entry.employee.firstName,
+      VID: entry.VID,
+      signIn: true,
+    };
   }
 
-  return false;
+  console.log("Need to sign out");
+  return {
+    firstName: entry.employee.firstName,
+    VID: entry.VID,
+    signIn: false,
+  };
 }
