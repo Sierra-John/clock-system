@@ -18,8 +18,8 @@ export default function LogIn({
         </p>
       </div>
       <div className="flex gap-8 justify-between">
-        <AuthButton type="Cancel" />
-        <AuthButton type="Log In" />
+        <AuthButton type="Cancel" VID={VID} />
+        <AuthButton type="Log In" VID={VID} />
       </div>
       <div className="flex justify-between items-center gap-[44px]">
         <hr className="border-black w-1/4" />

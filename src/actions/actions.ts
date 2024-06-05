@@ -69,3 +69,23 @@ export async function checkEmployeeStatus(VID: string) {
     signIn: false,
   };
 }
+
+export async function loginEmployee(VID: string) {
+  const signOutVal = new Date(0);
+
+  const entryRes = await prisma.entry.create({
+    data: {
+      signOut: signOutVal,
+      employee: {
+        connect: {
+          VID: VID,
+        },
+      },
+    },
+    include: {
+      employee: true,
+    },
+  });
+}
+
+export async function logoutEmployee(VID: string) {}
