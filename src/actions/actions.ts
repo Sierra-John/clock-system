@@ -86,6 +86,28 @@ export async function loginEmployee(VID: string) {
       employee: true,
     },
   });
+
+  redirect("/");
 }
 
-export async function logoutEmployee(VID: string) {}
+export async function logoutEmployee(VID: string) {
+  const signOutVal = new Date(0);
+
+  const entry = await prisma.entry.findFirst({
+    where: { VID },
+    orderBy: { id: "desc" },
+    include: {
+      employee: true,
+    },
+  });
+
+  const signOut = await prisma.entry.update({
+    where: { id: entry?.id },
+    data: {
+      signOut: new Date(),
+    },
+  });
+
+  console.log(signOut);
+  redirect("/");
+}
