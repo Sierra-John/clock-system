@@ -11,7 +11,10 @@ export default function Page() {
       <VIDForm />
       <div className="flex justify-center flex-wrap items-center gap-[44px]">
         <hr className="border-black w-[155px]" />
-        <Link href="/admin" className="text-[18px] text-val-red font-bold">
+        <Link
+          href="/admin"
+          className="text-[18px] text-val-red font-bold hover:text-val-red-hover"
+        >
           Admin Login
         </Link>
         <hr className="border-black w-[155px]" />
