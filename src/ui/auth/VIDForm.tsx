@@ -7,6 +7,7 @@ const initialState = { message: "" };
 
 export default function VIDForm() {
   const [state, formAction] = useFormState(handleVIDLogin, initialState);
+
   return (
     <form
       action={formAction}

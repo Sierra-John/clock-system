@@ -112,4 +112,21 @@ export async function logoutEmployee(VID: string) {
   redirect("/");
 }
 
-export async function loginAdmin(username: string, password: string) {}
+export async function loginAdmin(prevState: any, formData: FormData) {
+  const username = formData.get("username") as string;
+  const password = formData.get("password") as string;
+
+  const val = await prisma.admin.findUnique({
+    where: {
+      username: username,
+      password: password,
+    },
+  });
+
+  if (!val) {
+    return { message: "Invalid Credentials." };
+  }
+
+  // *** NEED TO ADD REDIRECT
+  redirect("/admin/home");
+}
