@@ -22,7 +22,7 @@ export default function VIDForm() {
       />
       <button
         type="submit"
-        className="text-[18px] shadow-xl text-white bg-val-red font-bold w-[532px] h-[48px] my-[15px] rounded-[44px]"
+        className="text-[18px] shadow-xl text-white bg-val-red font-bold w-[532px] h-[48px] my-[15px] rounded-[44px] hover:bg-val-red-hover"
       >
         Continue
       </button>

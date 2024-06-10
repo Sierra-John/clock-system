@@ -10,14 +10,14 @@ export default function LogIn({
 }) {
   return (
     <div className="flex flex-col">
-      <h1 className="text-[48px]">Welcome!</h1>
-      <div>
+      <h1 className="text-[48px] mb-[50px] font-semibold">Welcome!</h1>
+      <div className="mb-[50px]">
         <p className="text-[24px]">{firstName},</p>
         <p className="text-[24px]">
           you are <span className="text-val-red font-bold">signed out</span>
         </p>
       </div>
-      <div className="flex gap-8 justify-between">
+      <div className="flex gap-8 justify-between mb-[50px]">
         <AuthButton type="Cancel" VID={VID} />
         <AuthButton type="Log In" VID={VID} />
       </div>

@@ -21,7 +21,7 @@ function CancelButton() {
   return (
     <button
       onClick={() => router.replace("/")}
-      className="bg-[#58595B] shadow-xl text-white font-bold text-[18px] h-[48px] px-[80px] rounded-[44px]"
+      className="bg-[#58595B] shadow-xl text-white font-bold text-[18px] h-[48px] px-[80px] rounded-[44px] hover:bg-[#797a7b]"
     >
       Cancel
     </button>
@@ -37,7 +37,7 @@ function ActionButton({ type, VID }: AuthButtonInterface) {
           : await logoutEmployee(VID);
         console.log("Logged in");
       }}
-      className="bg-val-red text-white shadow-xl font-bold text-[18px] h-[48px] px-[80px] rounded-[44px]"
+      className="bg-val-red text-white shadow-xl font-bold text-[18px] h-[48px] px-[80px] rounded-[44px] hover:bg-val-red-hover"
     >
       {type}
     </button>

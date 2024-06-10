@@ -127,6 +127,5 @@ export async function loginAdmin(prevState: any, formData: FormData) {
     return { message: "Invalid Credentials." };
   }
 
-  // *** NEED TO ADD REDIRECT
   redirect("/admin/home");
 }

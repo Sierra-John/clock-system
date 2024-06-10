@@ -12,6 +12,7 @@ const config: Config = {
       colors: {
         "val-yellow": "#FDB913",
         "val-red": "#BF2519",
+        "val-red-hover": "#cb5046",
         "brd-inactive": "#D9D9D9",
         error: "#ff3333",
       },
