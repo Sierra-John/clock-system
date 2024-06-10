@@ -13,6 +13,7 @@ const config: Config = {
         "val-yellow": "#FDB913",
         "val-red": "#BF2519",
         "brd-inactive": "#D9D9D9",
+        error: "#ff3333",
       },
     },
   },

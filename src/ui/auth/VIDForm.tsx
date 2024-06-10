@@ -25,7 +25,7 @@ export default function VIDForm() {
       >
         Continue
       </button>
-      <p className="text-[18px] text-[#ff3333] font-bold mt-[15px]">
+      <p className="text-[18px] text-error font-bold mt-[15px]">
         {state?.message}
       </p>
     </form>
