@@ -4,13 +4,13 @@ import prisma from "@/lib/db";
 import { validateVID } from "@/utils/dataValidation";
 import { redirect } from "next/navigation";
 
-export async function handleVIDLogin(formData: FormData) {
+export async function handleVIDLogin(prevState: any, formData: FormData) {
   const VID = formData.get("VID") as string;
 
   // Make sure VID is in correct format
   if (!validateVID(VID)) {
     console.log(`${VID} is not valid`);
-    return;
+    return { message: "Please enter a valid VID." };
   }
 
   // Query the DB
@@ -21,7 +21,7 @@ export async function handleVIDLogin(formData: FormData) {
   // If Employee DNE
   if (!response) {
     console.log("There is no one with that VID");
-    return;
+    return { message: "Employee VID does not exist." };
   }
 
   redirect(`/${VID}`);
@@ -111,3 +111,5 @@ export async function logoutEmployee(VID: string) {
   console.log(signOut);
   redirect("/");
 }
+
+export async function loginAdmin(username: string, password: string) {}
