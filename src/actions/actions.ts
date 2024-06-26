@@ -3,6 +3,7 @@
 import prisma from "@/lib/db";
 import { validateVID } from "@/utils/dataValidation";
 import { redirect } from "next/navigation";
+import { DateRange } from "react-day-picker";
 
 export async function handleVIDLogin(prevState: any, formData: FormData) {
   const VID = formData.get("VID") as string;

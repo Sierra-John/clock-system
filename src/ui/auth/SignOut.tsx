@@ -23,7 +23,10 @@ export default function SignOut({
       </div>
       <div className="flex justify-between items-center gap-[44px]">
         <hr className="border-black w-1/4" />
-        <Link href="/" className="text-[18px] text-val-red font-bold ">
+        <Link
+          href={`/${VID}/summary`}
+          className="text-[18px] text-val-red font-bold "
+        >
           View Summary
         </Link>
         <hr className="border-black w-1/4" />
