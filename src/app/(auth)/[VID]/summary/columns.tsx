@@ -1,6 +1,11 @@
 "use client";
 
-import { extractTime, formatDate } from "@/lib/utils";
+import {
+  extractTime,
+  formatDate,
+  formatDay,
+  getTimeDifference,
+} from "@/lib/utils";
 import { ColumnDef } from "@tanstack/react-table";
 
 export type Entry = {
@@ -14,6 +19,14 @@ export const columns: ColumnDef<Entry>[] = [
     header: "Date",
     cell: ({ row }) => {
       const dateTime = formatDate(new Date(row.getValue("signIn")));
+      return <div>{dateTime}</div>;
+    },
+  },
+  {
+    accessorKey: "signIn",
+    header: "Day",
+    cell: ({ row }) => {
+      const dateTime = formatDay(new Date(row.getValue("signIn")));
       return <div>{dateTime}</div>;
     },
   },
@@ -37,6 +50,17 @@ export const columns: ColumnDef<Entry>[] = [
         time = "Clocked-in";
       }
       return <div>{time}</div>;
+    },
+  },
+  {
+    accessorKey: "signIn",
+    header: "*Time Worked",
+    cell: ({ row }) => {
+      const dateTime = getTimeDifference(
+        new Date(row.getValue("signIn")),
+        new Date(row.getValue("signOut"))
+      );
+      return <div>{dateTime}</div>;
     },
   },
 ];

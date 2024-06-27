@@ -42,14 +42,18 @@ export default function TableEmp() {
   }, [clicked]);
 
   return (
-    <div className="flex flex-col grow justify-center items-center">
-      <div className="flex justify-center items-center">
+    <div className="flex flex-col grow justify-center items-center ">
+      <div className="flex w-[1000px] justify-between items-center py-4">
         <DatePickerWithRange date={dates} setDate={setDates} />
-        <BiSearch
+        <button
+          className="flex justify-center items-center rounded-md border border-input py-[8px] px-4 text-sm hover:bg-accent hover:text-accent-foreground"
           onClick={() => {
             setClicks(clicked + 1);
           }}
-        />
+        >
+          <BiSearch className="mr-2 h-[16px] w-[16px]" />
+          <h1>Search</h1>
+        </button>
       </div>
       <Suspense>
         <DataTableEmp columns={columns} data={data} />

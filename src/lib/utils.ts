@@ -35,6 +35,36 @@ export function formatDate(dateTimeStr: Date) {
   return dateObj.toLocaleDateString("en-US", options);
 }
 
+export function formatDay(dateTimeStr: Date) {
+  const dateObj = new Date(dateTimeStr);
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: "long",
+  };
+  return dateObj.toLocaleDateString("en-US", options);
+}
+
+export function getTimeDifference(startDate: Date, endDate: Date): string {
+  // Calculate the difference in milliseconds
+  let difference = endDate.getTime() - startDate.getTime();
+
+  // Calculate hours, minutes and seconds
+  let hours = Math.floor(difference / (1000 * 60 * 60));
+  difference -= hours * 1000 * 60 * 60;
+
+  let minutes = Math.floor(difference / (1000 * 60));
+  difference -= minutes * 1000 * 60;
+
+  let seconds = Math.floor(difference / 1000);
+
+  // Format hours, minutes and seconds to have leading zeros if needed
+  const formattedHours = String(hours).padStart(2, "0");
+  const formattedMinutes = String(minutes).padStart(2, "0");
+  const formattedSeconds = String(seconds).padStart(2, "0");
+
+  // Return the formatted string
+  return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+}
+
 export function extractTime(dateTimeStr: Date) {
   const dateObj = new Date(dateTimeStr);
   let hours = dateObj.getHours();
@@ -47,4 +77,12 @@ export function extractTime(dateTimeStr: Date) {
   hours = hours ? hours : 12; // 0 should be converted to 12 in 12-hour format
 
   return `${hours}:${minutes}:${seconds} ${period}`;
+}
+
+export function clockInFormatString(clockIn: string): string {
+  return clockIn.replace("04:00:00.00", "00:00:00.00");
+}
+
+export function clockOutFormatString(clockOut: string): string {
+  return clockOut.replace("04:00:00.00", "23:59:59.00");
 }
