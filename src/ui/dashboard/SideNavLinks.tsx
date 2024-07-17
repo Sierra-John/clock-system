@@ -13,24 +13,18 @@ export default function SideNavLinks() {
   const navLinks = [
     {
       key: 0,
-      link: "/admin/home",
-      title: "Home",
-      logo: <BiHomeAlt className="h-[38px] w-[38px]" />,
-    },
-    {
-      key: 1,
       link: "/admin/timesheet",
       title: "Timesheet",
       logo: <BiSpreadsheet className="h-[38px] w-[38px]" />,
     },
     {
-      key: 2,
+      key: 1,
       link: "/admin/employees",
       title: "Employees",
       logo: <BiGroup className="h-[38px] w-[38px]" />,
     },
     {
-      key: 3,
+      key: 2,
       link: "/admin/settings",
       title: "Settings",
       logo: <BiWrench className="h-[38px] w-[38px] " />,

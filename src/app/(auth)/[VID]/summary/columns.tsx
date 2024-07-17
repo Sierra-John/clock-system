@@ -56,11 +56,15 @@ export const columns: ColumnDef<Entry>[] = [
     accessorKey: "signIn",
     header: "*Time Worked",
     cell: ({ row }) => {
-      const dateTime = getTimeDifference(
-        new Date(row.getValue("signIn")),
-        new Date(row.getValue("signOut"))
-      );
-      return <div>{dateTime}</div>;
+      if (row.getValue("signOut") != "1970-01-01T00:00:00.000Z") {
+        const dateTime = getTimeDifference(
+          new Date(row.getValue("signIn")),
+          new Date(row.getValue("signOut"))
+        );
+        return <div>{dateTime}</div>;
+      } else {
+        return <div>Counting...</div>;
+      }
     },
   },
 ];
